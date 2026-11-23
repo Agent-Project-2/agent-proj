@@ -1,0 +1,6 @@
+package-lock.json
+dist/
+coverage/
+upload/
+.codex/
+.venv/
