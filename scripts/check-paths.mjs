@@ -1,7 +1,7 @@
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
 
-const sourceRoot = "client/src";
+const sourceRoot = "game/client/src";
 const typeScriptExtension = /\.(?:ts|tsx|mts|cts)$/u;
 const typeScriptFilename = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*(?:\.d)?\.(?:ts|tsx|mts|cts)$/u;
 const entries = await readdir(sourceRoot, { recursive: true, withFileTypes: true }).catch(

@@ -20,7 +20,7 @@ export default defineConfig([
     },
   },
   {
-    files: ["client/**/*.{js,ts,tsx}"],
+    files: ["game/client/**/*.{js,ts,tsx}"],
     languageOptions: { globals: globals.browser },
   },
   {
