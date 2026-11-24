@@ -11,7 +11,7 @@ if (process.exitCode === 1) {
   process.exit();
 }
 
-const branch = /^(a|b)\/[1-9][0-9]*-[a-z0-9가-힣]+(?:-[a-z0-9가-힣]+)*$/u;
+const branch = /^(a|b)\/(?:[1-9][0-9]*|docs)-[a-z0-9가-힣]+(?:-[a-z0-9가-힣]+)*$/u;
 const conventionalSubject =
   /^(feat|fix|docs|chore|test|refactor|ci|build|style|perf|revert)(\([a-z0-9가-힣-]+\))?!?: \S.*$/u;
 
@@ -22,7 +22,7 @@ function validate(label, value, pattern, example) {
   }
 }
 
-validate("브랜치명", process.env.PR_BRANCH, branch, "b/12-증거-조회-도구");
+validate("브랜치명", process.env.PR_BRANCH, branch, "b/12-증거-조회-도구 또는 a/docs-회의록-정리");
 validate("PR 제목", process.env.PR_TITLE, conventionalSubject, "feat(수사): 증거 기록 추가");
 
 for (const subject of (process.env.PR_COMMIT_SUBJECTS ?? "").split("\n").filter(Boolean)) {
