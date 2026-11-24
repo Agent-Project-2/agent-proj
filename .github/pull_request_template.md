@@ -8,8 +8,8 @@
 
 ## 검증
 
-- [ ] `npm run check`
-- [ ] `python -m ruff check .` 및 `python -m ruff format --check .`
+- [ ] `npm --prefix scripts run check`
+- [ ] `python -m ruff check --config scripts/pyproject.toml .` 및 `python -m ruff format --check --config scripts/pyproject.toml .`
 - [ ] 이슈의 완료 기준과 관련 기능을 검증했습니다.
 
 <!-- 테스트 명령, 시나리오와 결과를 적어 주세요. -->

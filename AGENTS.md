@@ -18,8 +18,9 @@
 
 ## 코드 규칙
 
-- `client/src/scenes`는 Phaser 장면, `client/src/features/investigation`은 조사·심문·수첩, `client/src/features/npc`는 마을·NPC UI를 둔다.
-- `server/app/api`는 HTTP 라우트, `server/app/game`은 사건·상태 규칙, `server/app/npc`는 NPC 상태와 이벤트, `server/app/mcp`는 도구, `server/app/skills`는 게임 런타임 Skill과 로딩 코드를 둔다. 계약과 예시는 `docs/contracts`, 테스트는 `client/tests`와 `server/tests`에 둔다.
+- B가 맡는 `game/`에서 `game/client/src/scenes`는 Phaser 장면, `game/client/src/features/investigation`은 조사·심문·수첩, `game/client/src/features/npc`는 마을·NPC UI를 둔다. `game/server/app/api`는 HTTP 라우트, `game/server/app/game`은 사건·게임 상태와 이벤트 규칙, `game/server/app/mcp`는 게임 MCP 서버와 도구를 둔다.
+- A가 맡는 `agent/`에서 `agent/app/npc`는 NPC 프로필·기억·관계와 판단, `agent/app/mcp`는 MCP 클라이언트, `agent/app/skills`는 Agent Skills와 로딩 코드를 둔다.
+- 공통 데이터·API·MCP 계약과 예시는 `shared/contracts`에 둔다. 테스트는 구현에 맞춰 `game/client/tests`, `game/server/tests`, `agent/tests`에 둔다. 공용 검사 스크립트와 설정은 `scripts/`, 회의록과 ADR은 `docs/`에 둔다.
 - TypeScript는 값·함수에 `camelCase`, 클래스·타입에 `PascalCase`, 불변 상수에 `UPPER_SNAKE_CASE`, 소스 파일에 `kebab-case`를 쓴다. Python은 함수·모듈·변수에 `snake_case`, 클래스에 `PascalCase`, 상수에 `UPPER_SNAKE_CASE`를 쓴다. 외부 데이터 필드는 공통 계약의 이름을 따른다.
 - 사건의 확정 사실은 서버에서 읽기 전용으로 관리한다. 플레이어 화면과 NPC에는 역할별로 접근 가능한 정보만 넘긴다. 에이전트 판단은 서버가 규칙과 권한을 확인한 뒤 상태에 반영한다.
 - API 키는 서버 환경변수로 관리한다. 키, 원본 대화 파일, 개인 식별정보를 커밋하거나 이슈·PR에 첨부하지 않는다.
@@ -29,19 +30,19 @@
 Node.js 24와 Python 3.12를 사용한다. 첫 실행 시 루트에서 다음 명령으로 도구를 설치한다.
 
 ```sh
-npm ci
-python -m pip install -r requirements-dev.txt
+npm --prefix scripts ci
+python -m pip install -r scripts/requirements-dev.txt
 ```
 
 PR을 올리기 전에 아래 검사와 해당 이슈의 기능 테스트를 실행하고 결과를 본문에 기록한다.
 
 ```sh
-npm run check
-python -m ruff check .
-python -m ruff format --check .
+npm --prefix scripts run check
+python -m ruff check --config scripts/pyproject.toml .
+python -m ruff format --check --config scripts/pyproject.toml .
 ```
 
-자동 수정은 `npm run lint:fix`, `npm run format`, `python -m ruff check --fix .`, `python -m ruff format .`을 사용한다. 검사에 실패하면 변경한 코드나 설정의 원인을 확인한다.
+자동 수정은 `npm --prefix scripts run lint:fix`, `npm --prefix scripts run format`, `python -m ruff check --fix --config scripts/pyproject.toml .`, `python -m ruff format --config scripts/pyproject.toml .`을 사용한다. 검사에 실패하면 변경한 코드나 설정의 원인을 확인한다.
 
 ## 브랜치와 리뷰
 
