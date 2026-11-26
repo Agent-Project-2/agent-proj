@@ -112,6 +112,9 @@ select:disabled {
 h1:focus {
   outline: none;
 }
+.room-picture {
+  display: block;
+}
 .pixel-art {
   display: block;
   width: 100%;

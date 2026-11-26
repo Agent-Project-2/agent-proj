@@ -45,6 +45,15 @@ function artImage(file, width, height) {
   return image;
 }
 
+function roomImage(locationId) {
+  const picture = element("picture", "", "room-picture");
+  const compact = element("source");
+  compact.media = "(max-width: 530px)";
+  compact.srcset = new URL("compact/" + locationId + ".png", ART_ROOT).href;
+  picture.append(compact, artImage(locationId, 624, 208));
+  return picture;
+}
+
 function portrait(npc) {
   const face = element("span", "", "portrait");
   face.dataset.npc = npc.id;
@@ -123,7 +132,7 @@ function mountPreview(root, fixture) {
   function showStart() {
     const content = element("section", "", "frame opening");
     const stage = element("div", "", "opening-art");
-    stage.append(artImage("exhibition-hall", 624, 208));
+    stage.append(roomImage("exhibition-hall"));
     const panel = element("div", "", "opening-note");
     const note = element("div");
     note.append(element("h2", "사건 개요"), element("p", world.opening));
@@ -197,7 +206,7 @@ function mountPreview(root, fixture) {
     const scene = element("section", "", "frame");
     scene.setAttribute("aria-label", location.name + " 조사 장면");
     const stage = element("div", "", "room-stage");
-    stage.append(artImage(location.id, 624, 208));
+    stage.append(roomImage(location.id));
 
     const report = element("section", "", "panel object-report");
     report.tabIndex = -1;
@@ -274,7 +283,7 @@ function mountPreview(root, fixture) {
 
     const profile = element("aside", "", "frame profile");
     const setting = element("div", "", "profile-setting");
-    setting.append(artImage(location.id, 624, 208));
+    setting.append(artImage("compact/" + location.id, 176, 59));
     const bio = element("div", "", "profile-bio");
     const place = element("p", location.name, "profile-place");
     place.prepend(icon("pin"));
