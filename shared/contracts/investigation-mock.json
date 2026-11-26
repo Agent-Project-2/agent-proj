@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "world": {
+    "caseTitle": "사라진 전시품",
+    "opening": "저녁 점검을 마친 뒤 전시대가 비어 있는 것이 확인됐다. 마을 박물관의 세 장소를 조사한다.",
+    "locations": [
+      {
+        "id": "exhibition-hall",
+        "name": "전시장",
+        "description": "전시대가 비어 있다. 안내 데스크의 점검표를 확인할 수 있다.",
+        "object": {
+          "id": "hall-desk",
+          "name": "안내 데스크",
+          "evidence": {
+            "id": "display-checklist",
+            "name": "전시 점검표",
+            "detail": "20시 05분 점검표에 전시품이 제자리에 있었다고 표시되어 있다.",
+            "source": {
+              "type": "location_object",
+              "id": "hall-desk"
+            }
+          }
+        }
+      },
+      {
+        "id": "service-passage",
+        "name": "후문 통로",
+        "description": "전시장 뒤에 난 좁은 통로다. 후문 문턱을 살펴본다.",
+        "object": {
+          "id": "rear-door-threshold",
+          "name": "후문 문턱",
+          "evidence": {
+            "id": "threshold-print",
+            "name": "문턱의 신발 자국",
+            "detail": "후문 문턱에서 실내 쪽으로 이어지는 신발 자국이 남아 있다.",
+            "source": {
+              "type": "location_object",
+              "id": "rear-door-threshold"
+            }
+          }
+        }
+      },
+      {
+        "id": "archive-room",
+        "name": "기록실",
+        "description": "저녁 점검 자료와 출입 기록이 보관되어 있다.",
+        "object": {
+          "id": "entry-record-cabinet",
+          "name": "출입 기록함",
+          "requiresEvidenceId": "threshold-print",
+          "evidence": {
+            "id": "rear-door-log",
+            "name": "후문 개폐 기록",
+            "detail": "개폐 기록에 후문이 20시 10분에 열렸다고 남아 있다.",
+            "source": {
+              "type": "location_object",
+              "id": "entry-record-cabinet"
+            }
+          }
+        }
+      }
+    ],
+    "npcs": [
+      {
+        "id": "hall-attendant",
+        "name": "안내 담당",
+        "locationId": "exhibition-hall",
+        "activity": "전시장 안내 데스크를 정리하고 있다."
+      },
+      {
+        "id": "museum-guard",
+        "name": "경비 담당",
+        "locationId": "exhibition-hall",
+        "activity": "저녁 순찰을 마치고 전시장을 확인하고 있다."
+      },
+      {
+        "id": "visitor",
+        "name": "방문객",
+        "locationId": "service-passage",
+        "activity": "후문 통로에서 안내 표지판을 보고 있다."
+      },
+      {
+        "id": "archive-clerk",
+        "name": "기록실 담당",
+        "locationId": "archive-room",
+        "activity": "출입 기록을 분류하고 있다."
+      }
+    ]
+  },
+  "initialSession": {
+    "sessionId": "mock-session-1",
+    "caseId": "museum-demo",
+    "locationId": "exhibition-hall",
+    "gameMinute": 1220,
+    "acquiredEvidenceIds": []
+  },
+  "interrogation": {
+    "question": {
+      "request": {
+        "sessionId": "mock-session-1",
+        "eventId": "mock-question-1",
+        "npcId": "museum-guard",
+        "gameMinute": 1220,
+        "action": {
+          "type": "question",
+          "text": "저녁 점검 때 후문에서 무엇을 보셨나요?"
+        }
+      },
+      "response": {
+        "eventId": "mock-question-1",
+        "npcId": "museum-guard",
+        "status": "answered",
+        "presentedEvidenceId": null,
+        "statement": {
+          "id": "statement-mock-question-1",
+          "text": "20시 10분쯤 순찰을 돌 때 후문이 열려 있었어요.",
+          "gameMinute": 1220,
+          "source": {
+            "type": "npc_testimony",
+            "id": "museum-guard"
+          }
+        }
+      }
+    },
+    "deniedEvidence": {
+      "request": {
+        "sessionId": "mock-session-1",
+        "eventId": "mock-evidence-1",
+        "npcId": "museum-guard",
+        "gameMinute": 1220,
+        "action": {
+          "type": "present_evidence",
+          "evidenceId": "rear-door-log"
+        }
+      },
+      "response": {
+        "eventId": "mock-evidence-1",
+        "npcId": "museum-guard",
+        "status": "rejected",
+        "error": {
+          "code": "EVIDENCE_NOT_ACQUIRED",
+          "message": "확보한 증거만 제시할 수 있습니다."
+        }
+      }
+    },
+    "acceptedEvidence": {
+      "request": {
+        "sessionId": "mock-session-1",
+        "eventId": "mock-evidence-2",
+        "npcId": "museum-guard",
+        "gameMinute": 1220,
+        "action": {
+          "type": "present_evidence",
+          "evidenceId": "rear-door-log"
+        }
+      },
+      "response": {
+        "eventId": "mock-evidence-2",
+        "npcId": "museum-guard",
+        "status": "answered",
+        "presentedEvidenceId": "rear-door-log",
+        "statement": {
+          "id": "statement-mock-evidence-2",
+          "text": "제가 본 시간과 기록의 시각을 대조해 볼 수 있겠네요.",
+          "gameMinute": 1220,
+          "source": {
+            "type": "npc_testimony",
+            "id": "museum-guard"
+          }
+        }
+      }
+    },
+    "unavailable": {
+      "request": {
+        "sessionId": "mock-session-1",
+        "eventId": "mock-question-2",
+        "npcId": "museum-guard",
+        "gameMinute": 1220,
+        "action": {
+          "type": "question",
+          "text": "저녁 점검 때 후문에서 무엇을 보셨나요?"
+        }
+      },
+      "response": {
+        "eventId": "mock-question-2",
+        "npcId": "museum-guard",
+        "status": "failed",
+        "error": {
+          "code": "RESPONSE_UNAVAILABLE",
+          "message": "응답을 받지 못했습니다. 다시 시도해 주세요."
+        }
+      }
+    }
+  }
+}
