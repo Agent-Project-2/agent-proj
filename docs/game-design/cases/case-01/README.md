@@ -1,6 +1,6 @@
 # CASE 01. 돌아오지 말았어야 할 사람
 
-*The Man Who Should Never Have Returned*
+_The Man Who Should Never Have Returned_
 
 > 아버지는 20년 전 그 아이를 죽였다고 자백했다. 아들은 어제 그 아이를 죽였다고 자백했다. 적어도 하나는 거짓이다. 어쩌면 둘 다.
 

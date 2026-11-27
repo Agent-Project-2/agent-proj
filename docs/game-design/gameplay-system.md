@@ -16,14 +16,14 @@ NPC 이름·직업·초상화·현재 태도, 대화 기록, 자유 입력, 전�
 
 ## 추리 수첩
 
-| 탭 | 내용 |
-| --- | --- |
-| 인물 | 공개 프로필, 확인된 관계 및 공개된 비밀 |
-| 증거 | 획득한 물증·문서 |
-| 증언 | NPC의 주장 및 출처 |
-| 시간표 | 확보한 기록의 사건 시각과 행적 |
-| 모순 | 공개 자료 사이의 충돌 및 근거 |
-| 개인 메모 | 플레이어 가설 |
+| 탭        | 내용                                    |
+| --------- | --------------------------------------- |
+| 인물      | 공개 프로필, 확인된 관계 및 공개된 비밀 |
+| 증거      | 획득한 물증·문서                        |
+| 증언      | NPC의 주장 및 출처                      |
+| 시간표    | 확보한 기록의 사건 시각과 행적          |
+| 모순      | 공개 자료 사이의 충돌 및 근거           |
+| 개인 메모 | 플레이어 가설                           |
 
 물증, 미검증 증언, 추론 및 소문을 분리해 표시한다. 자동 모순 탐지는 플레이어가 확보한 기록만 사용하며 비공개 정답을 알려주지 않는다.
 
@@ -39,11 +39,11 @@ NPC 이름·직업·초상화·현재 태도, 대화 기록, 자유 입력, 전�
 
 ## MCP 및 Skills (명칭 예시)
 
-| 영역 | 예시 도구 |
-| --- | --- |
-| NPC 조회 | get_npc_context, recall_memory, get_relationship |
+| 영역          | 예시 도구                                                                                     |
+| ------------- | --------------------------------------------------------------------------------------------- |
+| NPC 조회      | get_npc_context, recall_memory, get_relationship                                              |
 | NPC 변경 요청 | record_memory, update_belief, update_relationship, disclose_fact, share_rumor, request_action |
-| 수사·게임 | inspect_location, present_evidence, get_notebook, submit_deduction |
+| 수사·게임     | inspect_location, present_evidence, get_notebook, submit_deduction                            |
 
 Skills 예시: npc-dialogue, memory-management, secret-management, interrogation-response, belief-revision, relationship-management, rumor-propagation, autonomous-decision, investigation-support. 초기에는 4~5개로 묶는 안을 검토한다. 실제 도구 등록 방식, 이름, 입출력은 #5 및 #14에서 공동 합의한다. 단순 함수 실행을 실제 MCP 검증으로 간주하지 않는다.
 
