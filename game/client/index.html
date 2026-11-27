@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#191e1b" />
+    <title>무연리 수사일지 · 사건 01</title>
+    <link rel="icon" href="/assets/case-01/lantern.png" />
+    <link
+      rel="preload"
+      href="/assets/galmuri/galmuri11.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/casebook.css" />
+  </head>
+  <body>
+    <header class="mast">
+      <div class="mast-inner">
+        <a class="brand" href="/" aria-label="무연리 수사일지 처음 화면"
+          ><span class="brand-emblem"><img src="/assets/case-01/lantern.png" alt="" /></span
+          ><span>무연리 수사일지</span></a
+        >
+        <nav class="main-nav" aria-label="수사 화면">
+          <button data-cmd="map" aria-current="page">
+            <img src="/assets/case-01/map.png" alt="" />현장 지도
+          </button>
+          <button data-cmd="notes">
+            <img src="/assets/case-01/notebook.png" alt="" />수사 수첩
+          </button>
+        </nav>
+        <div class="day" aria-label="게임 시각">
+          <span class="day-dot" aria-hidden="true"></span><span id="day">수사 1일차</span
+          ><time id="clock">14:00</time>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="case-heading">
+        <div>
+          <div class="case-number"><span></span> CASE FILE &nbsp;01</div>
+          <h1>돌아오지 말았어야 할 사람</h1>
+        </div>
+        <div class="setting">무연리<span> / </span>늦가을</div>
+      </div>
+      <section id="workspace" aria-label="수사 화면">
+        <p role="status">수사 기록을 불러오는 중…</p>
+      </section>
+    </main>
+    <dialog id="sheet" aria-labelledby="sheet-title"></dialog>
+    <div id="announce" class="sr-only" role="status" aria-live="polite"></div>
+    <script type="module" src="/src/casebook.js"></script>
+  </body>
+</html>

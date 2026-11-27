@@ -1,0 +1,180 @@
+{
+  "start": "square",
+  "places": [
+    {
+      "id": "square",
+      "name": "무연리 광장",
+      "short": "마을 광장",
+      "x": 48,
+      "y": 56,
+      "art": "square",
+      "summary": "빗물이 고인 감나무 아래, 오래된 실종 전단이 걸려 있다.",
+      "activity": "주민 면담",
+      "residents": ["dohyeon"],
+      "objects": [
+        {
+          "id": "poster",
+          "label": "실종 전단",
+          "x": 17,
+          "y": 55,
+          "detail": "스무 해 전 전단이다. 한지우, 당시 여섯 살. 모서리의 잉크가 바랬다."
+        },
+        {
+          "id": "dispatch",
+          "label": "수사 서류",
+          "x": 76,
+          "y": 76,
+          "evidence": "E01"
+        }
+      ],
+      "residentX": 53,
+      "residentY": 64
+    },
+    {
+      "id": "office",
+      "name": "구 마을 사무소",
+      "short": "구 사무소",
+      "x": 45,
+      "y": 22,
+      "art": "office",
+      "summary": "시신이 발견된 옛 사무소. 보존된 현장에 유류품이 남아 있다.",
+      "activity": "현장 감식",
+      "residents": [],
+      "objects": [
+        {
+          "id": "scene-report",
+          "label": "현장 조사표",
+          "x": 32,
+          "y": 52,
+          "evidence": "E02"
+        },
+        {
+          "id": "pass",
+          "label": "떨어진 출입증",
+          "x": 90,
+          "y": 43,
+          "evidence": "E03"
+        },
+        {
+          "id": "tape",
+          "label": "책상 옆 녹음기",
+          "x": 73,
+          "y": 60,
+          "evidence": "E11",
+          "requires": ["E02"]
+        },
+        {
+          "id": "envelope",
+          "label": "접힌 봉투",
+          "x": 54,
+          "y": 68,
+          "evidence": "E10",
+          "requires": ["E03"]
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "name": "마을 기록관",
+      "short": "기록관",
+      "x": 79,
+      "y": 36,
+      "art": "archive",
+      "summary": "전화 내역과 오래된 수사 자료를 공식 열람본으로 대조한다.",
+      "activity": "공식 자료 조회",
+      "residents": ["seoyun"],
+      "objects": [
+        {
+          "id": "call",
+          "label": "전화 회신철",
+          "x": 13,
+          "y": 55,
+          "evidence": "E04"
+        },
+        {
+          "id": "old-file",
+          "label": "실종 사건철",
+          "x": 77,
+          "y": 37,
+          "evidence": "E07"
+        },
+        {
+          "id": "letter-copy",
+          "label": "승인된 편지 사본",
+          "x": 64,
+          "y": 69,
+          "evidence": "E08",
+          "requires": ["E07", "E10"]
+        },
+        {
+          "id": "clinic-copy",
+          "label": "진료소 회신",
+          "x": 74,
+          "y": 58,
+          "evidence": "E05",
+          "requires": ["E04"]
+        }
+      ],
+      "residentX": 73,
+      "residentY": 49
+    },
+    {
+      "id": "cafe",
+      "name": "하린의 카페",
+      "short": "카페",
+      "x": 23,
+      "y": 38,
+      "art": "cafe",
+      "summary": "찻잔을 내려놓은 하린이 창가 자리를 권한다.",
+      "activity": "관계자 면담",
+      "residents": ["harin"],
+      "objects": [
+        {
+          "id": "guestbook",
+          "label": "손님 수첩",
+          "x": 81,
+          "y": 62,
+          "detail": "주문과 찻값을 적어 둔 영업 수첩이다. 손님의 사적인 페이지는 덮어 둔다."
+        },
+        {
+          "id": "counter",
+          "label": "카운터",
+          "x": 60,
+          "y": 51,
+          "detail": "하린이 카운터 뒤에서 밀린 주문을 정리한다. 과거 사건 기록에 관해 물어볼 수 있다."
+        }
+      ],
+      "residentX": 28,
+      "residentY": 49
+    },
+    {
+      "id": "clinic",
+      "name": "무연리 진료소",
+      "short": "진료소",
+      "x": 80,
+      "y": 72,
+      "art": "clinic",
+      "summary": "접수대의 업무 기록에서 전날 근무자의 행적을 확인한다.",
+      "activity": "업무 기록 대조",
+      "residents": ["jaehyeon"],
+      "objects": [
+        {
+          "id": "duty",
+          "label": "근무 일지 열람본",
+          "x": 80,
+          "y": 50,
+          "evidence": "E05"
+        },
+        {
+          "id": "clock",
+          "label": "벽시계",
+          "x": 62,
+          "y": 14,
+          "detail": "벽시계 아래에 교대 근무 시간이 적혀 있다. 업무 시간은 접수대의 열람본에서 대조할 수 있다."
+        }
+      ],
+      "residentX": 72,
+      "residentY": 82
+    }
+  ]
+}

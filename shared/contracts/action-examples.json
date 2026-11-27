@@ -1,0 +1,107 @@
+{
+  "caseId": "case-01",
+  "steps": [
+    {
+      "name": "미획득 자료는 제시할 수 없다",
+      "request": {
+        "requestId": "r-1",
+        "action": {
+          "type": "present_evidence",
+          "npcId": "dohyeon",
+          "evidenceId": "E04"
+        }
+      },
+      "expect": {
+        "status": "rejected",
+        "error": "EVIDENCE_NOT_ACQUIRED"
+      }
+    },
+    {
+      "name": "기록관으로 이동",
+      "request": {
+        "requestId": "r-2",
+        "action": {
+          "type": "travel",
+          "locationId": "archive"
+        }
+      },
+      "expect": {
+        "status": "accepted",
+        "eventId": "ev-2"
+      }
+    },
+    {
+      "name": "통화 내역 확보",
+      "request": {
+        "requestId": "r-3",
+        "action": {
+          "type": "inspect",
+          "objectId": "call"
+        }
+      },
+      "expect": {
+        "status": "accepted",
+        "eventId": "ev-3",
+        "evidenceId": "E04"
+      }
+    },
+    {
+      "name": "같은 요청의 응답 재수신",
+      "request": {
+        "requestId": "r-3",
+        "action": {
+          "type": "inspect",
+          "objectId": "call"
+        }
+      },
+      "expect": {
+        "status": "accepted",
+        "eventId": "ev-3",
+        "evidenceId": "E04"
+      }
+    },
+    {
+      "name": "요청 번호 충돌",
+      "request": {
+        "requestId": "r-3",
+        "action": {
+          "type": "inspect",
+          "objectId": "old-file"
+        }
+      },
+      "expect": {
+        "status": "rejected",
+        "error": "REQUEST_CONFLICT"
+      }
+    },
+    {
+      "name": "광장으로 이동",
+      "request": {
+        "requestId": "r-4",
+        "action": {
+          "type": "travel",
+          "locationId": "square"
+        }
+      },
+      "expect": {
+        "status": "accepted",
+        "eventId": "ev-4"
+      }
+    },
+    {
+      "name": "도현에게 통화 내역 제시",
+      "request": {
+        "requestId": "r-5",
+        "action": {
+          "type": "present_evidence",
+          "npcId": "dohyeon",
+          "evidenceId": "E04"
+        }
+      },
+      "expect": {
+        "status": "accepted",
+        "eventId": "ev-5"
+      }
+    }
+  ]
+}

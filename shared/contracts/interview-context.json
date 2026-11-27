@@ -1,0 +1,21 @@
+{
+  "caseId": "case-01",
+  "sessionId": "joint-demo",
+  "requestId": "r-5",
+  "locationId": "square",
+  "gameMinute": 853,
+  "npcId": "dohyeon",
+  "action": {
+    "type": "present_evidence",
+    "npcId": "dohyeon",
+    "evidenceId": "E04"
+  },
+  "previousTurns": [],
+  "presentedEvidence": {
+    "id": "E04",
+    "title": "19시 통화 기록",
+    "source": "공개 수사 자료 · 통화 내역과 상대 진술",
+    "eventTime": "전날 19:00",
+    "detail": "통화 내역의 19시 발신과 상대의 확인 진술이 일치한다. 피해자가 도현이 자백한 시각 뒤에도 살아 있었다는 근거다."
+  }
+}

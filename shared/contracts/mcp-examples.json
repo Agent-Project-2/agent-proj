@@ -1,0 +1,74 @@
+[
+  {
+    "name": "현 위치의 공개 상태 조회",
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "get_world_state",
+        "arguments": {
+          "sessionId": "joint-demo"
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "isError": false,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"caseId\":\"case-01\",\"locationId\":\"square\",\"locationName\":\"무연리 광장\",\"gameMinute\":840,\"residentIds\":[\"dohyeon\"]}"
+          }
+        ],
+        "structuredContent": {
+          "caseId": "case-01",
+          "locationId": "square",
+          "locationName": "무연리 광장",
+          "gameMinute": 840,
+          "residentIds": ["dohyeon"]
+        }
+      }
+    }
+  },
+  {
+    "name": "열람 권한이 없는 증거 제시",
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "tools/call",
+      "params": {
+        "name": "present_evidence",
+        "arguments": {
+          "sessionId": "joint-demo",
+          "requestId": "offer-01",
+          "npcId": "dohyeon",
+          "evidenceId": "E04"
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "result": {
+        "isError": true,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"requestId\":\"offer-01\",\"status\":\"rejected\",\"error\":{\"code\":\"EVIDENCE_NOT_ACQUIRED\",\"message\":\"이 수사에서 확보한 증거만 제시할 수 있습니다.\"}}"
+          }
+        ],
+        "structuredContent": {
+          "requestId": "offer-01",
+          "status": "rejected",
+          "error": {
+            "code": "EVIDENCE_NOT_ACQUIRED",
+            "message": "이 수사에서 확보한 증거만 제시할 수 있습니다."
+          }
+        }
+      }
+    }
+  }
+]
