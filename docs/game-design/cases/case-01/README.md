@@ -16,6 +16,7 @@ _The Man Who Should Never Have Returned_
 - [시나리오 및 시간표](scenario.md)
 - [등장인물 및 초기 지식](characters.md)
 - [증거·추리·엔딩](investigation.md)
+- [B 작업의 탐색 장소와 단서 경로](locations.md)
 - [공통 NPC 시스템](../../npc-system.md)
 - [공통 게임 시스템](../../gameplay-system.md)
 
